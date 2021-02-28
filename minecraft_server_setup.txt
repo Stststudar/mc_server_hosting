@@ -1,0 +1,65 @@
+# Setting up ssh
+  sudo apt-get update -y
+  sudo apt-get install -y openssh-server
+  sudo systemctl status ssh
+
+# If server is not running
+  sudo systemctl start ssh
+
+# Find your computers ip address
+  ip address
+
+# Access ur server via remote computer
+  ssh user_name@192.168.1.42
+
+# Extra installs for quality of life
+  sudo apt-get install -y tmux htop
+
+# Configuring samba
+  sudo apt-get install -y samba
+  pwd
+  sudo nano /etc/samba/smb.conf
+
+[minecraft_server]
+   comment = nas access to minecraft server
+   path = /home/user_name
+   guest ok = no
+   browseable = yes
+   writeable = yes
+
+# save and exit nano
+  CTRL+x y ENTER
+
+# Adding user to smaba
+  sudo smbpasswd -a user_name
+  sudo systemctl restart smbd.service
+
+# Creating server home and build run script
+  mkdir my_first_server
+  cd my_first_server
+  nano run.sh
+  
+  % Paste the following inside run.sh
+
+#!/bin/sh
+java -Xms1G -Xmx2G -XX:ActiveProcessorCount=6 -jar $1 nogui
+
+# save and exit nano
+  CTRL+x y ENTER
+
+# Execute run and download java
+  sudo apt-get install -y openjdk-11-jdk
+  chmod 770 run.sh
+  ./run.sh
+
+# Accept eula
+  
+  nano eula.txt
+
+CTRL+b d
+
+# Re attach to tmux
+  tmux attach
+
+# View system monitor
+  htop

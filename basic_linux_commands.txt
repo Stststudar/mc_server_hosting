@@ -1,0 +1,58 @@
+# Open and commands manual
+  man ls
+
+# Clear you screen
+  clear
+  % CTRL+l
+
+# Print a directory
+  ls
+
+# Print files permission
+  ls -l
+
+# Print current directory
+  pwd
+
+# Create a directory
+  mkdir my_first_dir
+
+# Move into that directory
+  cd my_first_dir
+
+  % Extra
+    1. Move back to parent directory
+      cd ..
+    2. Move to user home directory
+      cd ~/
+    3. Move to specific user home directory
+      cd /home/wez
+
+# Open easy text editor
+  nano test.txt
+
+# Open a real text editor
+  vi test.txt
+
+# Change read, write, execute permissions
+  chmod 777 test.txt
+
+  % Options (owner, group, global)
+    777 = read, write, and execute
+    666 = read, write
+    444 = read only
+    222 = write only
+    111 = execute only
+
+# Remove a file
+  % Warning when you delete a file its gone for ever!!!
+  rm test.txt
+  rm -r my_first_dir
+
+# Execute as root user
+  sudo whoami
+
+# Update or install a package
+  sudo apt-get update -y
+  sudo apt-get install -y vim
+  
